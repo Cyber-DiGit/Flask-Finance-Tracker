@@ -1,18 +1,17 @@
--- Table to store user information
+-- PostgreSQL version of the schema
+
 CREATE TABLE users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     username TEXT NOT NULL UNIQUE,
     hash TEXT NOT NULL
 );
 
--- Table to store financial transactions
 CREATE TABLE transactions (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER NOT NULL,
-    type TEXT NOT NULL CHECK(type IN ('income', 'expense')),
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES users(id),
+    type TEXT NOT NULL,
     description TEXT NOT NULL,
-    amount REAL NOT NULL,
+    amount NUMERIC NOT NULL,
     category TEXT NOT NULL,
-    date DATE NOT NULL,
-    FOREIGN KEY(user_id) REFERENCES users(id)
+    date DATE NOT NULL
 );
