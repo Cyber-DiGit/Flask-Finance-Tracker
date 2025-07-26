@@ -8,3 +8,6 @@ __pycache__/
 # IDE / OS specific
 .DS_Store
 .vscode/
+
+# Flask
+flask_session
