@@ -1,0 +1,163 @@
+/*
+--- General Body & Font Styling ---
+*/
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f4f7f6; /* A very light grey for the background */
+    color: #333; /* A dark grey for text, easier on the eyes than pure black */
+    margin: 0;
+    padding: 20px;
+}
+
+/*
+--- Navigation Bar Styling ---
+*/
+
+nav {
+    background-color: #ffffff; /* White background for the nav */
+    border-bottom: 1px solid #dddddd;
+    padding: 15px 20px;
+    margin-bottom: 30px; /* Create space between nav and dashboard */
+    border-radius: 8px; /* Slightly rounded corners */
+    display: flex;
+    justify-content: flex-end; /* Push the links to the right */
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #007bff; /* A nice blue for links */
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #0056b3; /* A darker blue for when you hover over a link */
+}
+
+
+/*
+--- Summary Pane Enhancement ---
+*/
+
+.summary-item {
+    display: flex;
+    justify-content: space-between; /* Pushes text to opposite ends */
+    font-size: 1.1em;
+    padding: 10px 0;
+}
+
+.summary-item.balance {
+    font-weight: bold; /* Make the final balance stand out */
+    font-size: 1.3em;
+    border-top: 2px solid #eeeeee;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+/*
+--- Transaction Table Styling ---
+*/
+
+table {
+    width: 100%; /* Make the table take up the full width of its container */
+    border-collapse: collapse; /* Make borders neat, not doubled up */
+    margin-top: 20px; /* Add some space above the table */
+}
+
+th, td {
+    padding: 12px 15px; /* Add comfortable spacing inside each cell */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #dddddd; /* A light line between each row */
+}
+
+thead th {
+    background-color: #e9ecef; /* A light grey background for the header */
+    font-weight: 600; /* Bolder text for the headers */
+    color: #495057;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* A slightly off-white for every other row */
+}
+
+tbody tr:hover {
+    background-color: #e2e6ea; /* A hover effect for the row the mouse is on */
+}
+
+.amount-income {
+    color: #28a745; /* Green for income */
+}
+
+.amount-expense {
+    color: #dc3545; /* Red for expense */
+}
+
+/*
+--- Universal Form Styling ---
+*/
+
+.form-container {
+    max-width: 500px; /* The form won't get too wide on big screens */
+    margin: 40px auto; /* Center the form on the page with space on top */
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* A subtle shadow for a "card" effect */
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* Style all of our different input types at once */
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container input[type="number"],
+.form-container input[type="date"],
+.form-container select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px; /* Space between form fields */
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Important for padding and width to work together */
+    font-size: 16px;
+}
+
+/* Style for when a user clicks into a field */
+.form-container input:focus,
+.form-container select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.25);
+}
+
+.form-container button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.form-container button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    text-align: center; /* Center the text */
+    margin-top: 40px; /* Add space above the footer */
+    padding: 20px;
+    font-size: 0.9em; /* Make the text slightly smaller */
+    color: #888888; /* Use a muted grey color */
+    border-top: 1px solid #eeeeee; /* A subtle line to separate it */
+}

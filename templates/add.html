@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="form-container">
+        <h2>Add a New Transaction</h2>
+        <form action="/add" method="post">
+            <div><select name="type"><option disabled selected>Type</option><option value="income">Income</option><option value="expense">Expense</option></select></div>
+            <div><input autocomplete="off" name="description" placeholder="Description (e.g., Groceries, Salary)" type="text"></div>
+            <div><input name="amount" placeholder="Amount" type="number" step="0.01"></div>
+            <div><input autocomplete="off" name="category" placeholder="Category (e.g., Food, Work)" type="text"></div>
+            <div><input name="date" type="date"></div>
+            <button type="submit">Add Transaction</button>
+        </form>
+    </div>
+{% endblock %}

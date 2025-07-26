@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="form-container">
+        <h2>Register for an Account</h2>
+        <form action="/register" method="post">
+        <!-- All the inputs are the same as before -->
+            <div><input autocomplete="off" autofocus name="username" placeholder="Username" type="text"></div>
+            <div><input name="password" placeholder="Password" type="password"></div>
+            <div><input name="confirmation" placeholder="Confirm Password" type="password"></div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+{% endblock %}

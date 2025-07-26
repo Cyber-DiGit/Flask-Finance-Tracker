@@ -1,0 +1,10 @@
+# Database file
+finance.db
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE / OS specific
+.DS_Store
+.vscode/

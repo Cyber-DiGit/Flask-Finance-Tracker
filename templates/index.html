@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="dashboard-container">
+
+        <div class="summary-pane">
+            <h2>Summary</h2>
+            <div class = "summary-item">
+                <span>Total Income: </span>
+                <span> {{ "(%.2f)"|format(total_income) }} </span>
+            </div>
+
+            <div class = "summary-item">
+                <span>Total Expenses: </span>
+                <span>{{ "(%.2f)"|format(total_expenses) }}</span>
+            </div>
+
+            <hr>
+
+            <div class = "summary-item">
+                <span>Net Balance: </span>
+                <span>{{ "(%.2f)"|format(net_balance) }}</span>
+            </div>
+        </div>
+        <div class="transactions-pane">
+            <h2>Transactions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>{{transactions.date}}</th>
+                        <th>{{transactions.type}}</th>
+                        <th>{{transactions.description}}</th>
+                        <th>{{transactions.category}}</th>
+                        <th>{{transactions.amount}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for transaction in transactions %}
+                        <tr>
+                            <td>{{transaction.date}}</td>
+                            <td>{{transaction.type}}</td>
+                            <td>{{transaction.description}}</td>
+                            <td>{{transaction.category}}</td>
+                            <td class="amount-{{ transaction.type }}">
+                        {% if transaction.type == 'expense' %}-{% endif %}${{ "%.2f"|format(transaction.amount) }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
