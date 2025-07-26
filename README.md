@@ -18,7 +18,6 @@ A clean and simple web application for tracking personal income and expenses. Us
 
 ### How to Run Locally
 1.  Clone the repository: `git clone https://github.com/Cyber-DiGit/Flask-Finance-Tracker.git`
-2.  Navigate to the project directory: `cd project`
 3.  Install dependencies: `pip install -r requirements.txt`
 4.  Initialize the database: `sqlite3 finance.db < schema.sql`
 5.  Run the application: `flask run`

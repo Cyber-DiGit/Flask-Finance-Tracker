@@ -41,16 +41,16 @@ def register():
         confirmation = request.form.get("confirmation")
 
         if not username:
-            return("Error: must provide username")
+            return render_template("Error.html", message="Must provide username")
 
         elif len(db.execute("SELECT * FROM users WHERE username = ?", username)) > 0:
-            return("Error: Username is already taken")
+            return render_template("Error.html", message="Username already exists")
 
         if not password or not confirmation:
-            return("Error: must provide password and confirmation")
+            return render_template("Error.html", message="Must provide password and confirmation")
 
         elif password != confirmation:
-            return("Error: passwords do not match")
+            return render_template("Error.html", message="Passwords do not match")
 
         password_hash = generate_password_hash(password)
         db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", username, password_hash)
@@ -67,14 +67,14 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
         if not username:
-            return "Error: Please enter Username"
+            return render_template("Error.html", message="Must provide username")
         elif not password:
-            return "Error: Please enter Password"
+            return render_template("Error.html", message="Must provide password")
 
         rows = db.execute("SELECT * FROM users WHERE username = ?", username)
 
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], password):
-            return "Error: invalid username or password"
+            return render_template("Error.html", message="Invalid username or password")
 
         session["user_id"] = rows[0]["id"]
 
@@ -104,14 +104,14 @@ def add():
         date = request.form.get("date")
 
         if not all([trans_type, description, amount, category, date]):
-            return "Error: *All Fields are Required*"
+            return render_template("Error.html", message="All fields are required")
         if trans_type not in ["income", "expense"]:
-            return "Error: Invalid transaction type"
+            return render_template("Error.html", message="Invalid transaction type")
         try:
             if float(amount) <= 0:
-                return "Error: Amount must be a positive number"
+                return render_template("Error.html", message="Amount must be greater than zero")
         except ValueError:
-            return "Error: Invalid Amount"
+            return render_template("Error.html", message="Invalid amount format")
         db.execute(
             "INSERT INTO transactions (user_id, type, description, amount, category, date) VALUES (?, ?, ?, ?, ?, ?)",
             user_id,

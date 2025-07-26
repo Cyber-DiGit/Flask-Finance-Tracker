@@ -42,7 +42,7 @@
                             <td>{{transaction.description}}</td>
                             <td>{{transaction.category}}</td>
                             <td class="amount-{{ transaction.type }}">
-                        {% if transaction.type == 'expense' %}-{% endif %}${{ "%.2f"|format(transaction.amount) }}
+                        {% if transaction.type == 'expense' %}-{% endif %}₹{{ "%.2f"|format(transaction.amount) }}
                             </td>
                         </tr>
                     {% endfor %}
