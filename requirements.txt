@@ -3,4 +3,5 @@ Flask-Session
 cs50
 gunicorn
 psycopg2-binary
+mysql-connector-python
 Werkzeug
