@@ -1,3 +1,4 @@
+import os
 from cs50 import SQL
 from flask import Flask, render_template, request, redirect, session
 from flask_session import Session
@@ -8,11 +9,33 @@ app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
+# --- This is the start of the block to replace ---
+print("--- SCRIPT START: Attempting to configure database. ---")
 
-db = SQL("sqlite:///finance.db")
-users = db.execute("SELECT * FROM users")
-transactions = db.execute("SELECT * FROM transactions")
+# Get the production database URL from the environment
+db_url = os.environ.get("DATABASE_URL")
 
+# Print what we found, so we can see it in the logs.
+# This is the most important line for debugging.
+print(f"--- DIAGNOSTIC: Value of DATABASE_URL is: {db_url} ---")
+
+# If the DATABASE_URL is NOT set, it means we are running locally.
+if not db_url:
+    print("--- INFO: No DATABASE_URL found. Falling back to SQLite. ---")
+    db_url = "sqlite:///finance.db"
+else:
+    print("--- INFO: DATABASE_URL found. Configuring for production. ---")
+
+# A professional trick: Some services use 'postgres://' which is deprecated.
+if db_url.startswith("postgres://"):
+    db_url = db_url.replace("postgres://", "postgresql://", 1)
+    print(f"--- INFO: Corrected URL to: {db_url} ---")
+
+# Initialize the database connection using the determined URL
+db = SQL(db_url)
+
+print("--- SCRIPT END: Database configured. ---")
+# --- This is the end of the block to replace ---
 @app.route("/")
 def index():
     user_id = session.get("user_id")
@@ -20,8 +43,8 @@ def index():
         return redirect("/login")
 
     transactions = db.execute("SELECT * FROM transactions WHERE user_id = ? ORDER BY date DESC", user_id)
-    income_result = db.execute("SELECT SUM(amount) as total FROM transactions WHERE type IS 'income' AND user_id = ?", user_id)
-    expense_result = db.execute("SELECT SUM(amount) as total FROM transactions WHERE type IS 'expense' AND user_id = ?", user_id)
+    income_result = db.execute("SELECT SUM(amount) as total FROM transactions WHERE type = 'income' AND user_id = ?", user_id)
+    expense_result = db.execute("SELECT SUM(amount) as total FROM transactions WHERE type = 'expense' AND user_id = ?", user_id)
     total_income = income_result[0]["total"] or 0
     total_expenses = expense_result[0]["total"] or 0
     net_balance = total_income - total_expenses
