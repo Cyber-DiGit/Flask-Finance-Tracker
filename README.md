@@ -12,13 +12,11 @@ A full-stack web application built from the ground up to provide users with a cl
 
 <p align="center">
   <strong>Desktop Dashboard</strong><br>
-  <img src="<img width="1293" height="684" alt="image" src="https://github.com/user-attachments/assets/8cea2b76-1f96-46eb-8297-8345a1effcfe" />
-" alt="Desktop Dashboard View" width="700">
+  <img src="https://github.com/user-attachments/assets/8cea2b76-1f96-46eb-8297-8345a1effcfe" alt="Desktop Dashboard View" width="700">
 </p>
 <p align="center">
   <strong>Add Transaction Form</strong><br>
-  <img src="<img width="1295" height="685" alt="image" src="https://github.com/user-attachments/assets/6baa5271-0d39-4631-a0bb-d3b74df3a3ea" />
-" alt="Add Transaction Form" width="300">
+  <img src="https://github.com/user-attachments/assets/6baa5271-0d39-4631-a0bb-d3b74df3a3ea" alt="Add Transaction Form" width="300">
 </p>
 
 ---
