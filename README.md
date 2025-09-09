@@ -6,32 +6,35 @@ A full-stack web application built from the ground up to provide users with a cl
 
 **🚀 Live Application URL:** [**dub.sh/finance-dashboard**](https://dub.sh/finance-dashboard)
 
-<!--**🎥 2-Minute Demo Video:** [Link to Your YouTube Video Here]
-*(This is a placeholder. You will add the link after you've recorded the video.)*-->
+---
+
+## Screenshots
+
+<p align="center">
+  <strong>Desktop Dashboard</strong><br>
+  <img src="<img width="1293" height="684" alt="image" src="https://github.com/user-attachments/assets/8cea2b76-1f96-46eb-8297-8345a1effcfe" />
+" alt="Desktop Dashboard View" width="700">
+</p>
+<p align="center">
+  <strong>Add Transaction Form</strong><br>
+  <img src="<img width="1295" height="685" alt="image" src="https://github.com/user-attachments/assets/6baa5271-0d39-4631-a0bb-d3b74df3a3ea" />
+" alt="Add Transaction Form" width="300">
+</p>
 
 ---
 
 ## Features
 
-*   **Secure User Authentication:** Full registration and login functionality with password hashing to ensure user data is secure.
+*   **Secure User Authentication:** Full registration and login functionality with password hashing.
 *   **Full CRUD Functionality:** Users can Create, Read, Update, and Delete their own transactions.
-*   **"One-Glance" Financial Summary:** The dashboard provides an instant, real-time calculation of total income, expenses, and net balance.
-*   **Responsive, Mobile-First Design:** The UI is hand-coded with vanilla CSS (Flexbox, Media Queries) and is fully responsive for a seamless experience on both desktop and mobile devices.
-*   **Professional UX:** Includes a "cold start" loading page for the production server and a consistent design system across all pages.
+*   **"One-Glance" Financial Summary:** The dashboard provides a real-time calculation of total income, expenses, and net balance.
+*   **Responsive, Mobile-First Design:** Hand-coded with vanilla CSS (Flexbox, Media Queries) for a seamless experience on any device.
 
 ## Tech Stack
 
 *   **Back-End:** Python, Flask
-*   **Database:** MySQL (Production on PythonAnywhere), SQLite (Development)
+*   **Database:** MySQL (Production on PythonAnywhere)
 *   **Front-End:** HTML, CSS, JavaScript
 *   **Deployment:** Hosted on PythonAnywhere with a Gunicorn production server.
-
-## What I Learned
-
-This project was a deep dive into the full software development lifecycle. Key learnings include:
-*   Architecting a database schema from scratch and adapting it for different SQL dialects (SQLite vs. MySQL).
-*   Implementing a secure, session-based authentication system.
-*   Solving real-world deployment challenges, including server configuration (WSGI), dependency management, and production-specific bugs like "cold starts."
-*   Building a complete, responsive UI/UX from the ground up without relying on a framework like Bootstrap.
 
 ---
